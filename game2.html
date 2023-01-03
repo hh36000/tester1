@@ -5,27 +5,26 @@
   <style>
     /* Add some styling for the game */
     body {
+      margin: 0;
       background-color: #ddd;
       text-align: center;
     }
     #game {
-      display: inline-block;
-      background-color: #fff;
-      border: 1px solid #999;
-      width: 400px;
-      height: 300px;
-      position: relative;
-    }
-    .elephant {
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       right: 0;
-      margin: auto;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .elephant {
       width: 50px;
       height: 50px;
       background-image: url(elephant.png);
       background-size: cover;
+      animation-duration: 2s;
     }
   </style>
   <link rel="stylesheet" href="style.css">
@@ -33,29 +32,36 @@
 <body>
   <h1>Jumpin' Elephants</h1>
   <div id="game">
-    <div id="elephant" class="elephant"></div>
+    <div id="elephant1" class="elephant"></div>
+    <div id="elephant2" class="elephant"></div>
+    <div id="elephant3" class="elephant"></div>
+    <div id="elephant4" class="elephant"></div>
+    <div id="elephant5" class="elephant"></div>
+    <div id="elephant6" class="elephant"></div>
+    <div id="elephant7" class="elephant"></div>
   </div>
-  <p>Click the elephant to make it jump!</p>
+  <p>Click the elephants to make them jump!</p>
 
 <script>
-  // Get the game and elephant elements
+  // Get the game element
   var game = document.getElementById('game');
-  var elephant = document.getElementById('elephant');
 
-  // Set the initial position of the elephant
-  elephant.style.bottom = '0';
+  // Add an event listener to the game element
+  game.addEventListener('click', function(event) {
+    // Get the clicked elephant element
+    var elephant = event.target;
 
-  // Add an event listener to the elephant
-  elephant.addEventListener('click', function() {
-    // Calculate a random height for the jump
-    var jumpHeight = Math.random() * 100 + 50;
+    // Make sure that the clicked element is an elephant
+    if (elephant.classList.contains('elephant')) {
+      // Calculate a random height for the jump
+      var jumpHeight = Math.random() * 100 + 50;
 
-    // Set the jump animation for the elephant
-    elephant.style.animation = 'jump ' + jumpHeight/100 + 's ease';
+      // Set the jump animation for the elephant
+      elephant.style.animation = 'jump ' + jumpHeight/100 + 's ease';
 
-  // Don't reset the position of the elephant after the jump
-  // Instead, keep increasing the jump height
-  elephant.style.bottom = jumpHeight + 'px';
+      // Keep increasing the jump height
+      elephant.style.bottom = jumpHeight + 'px';
+    }
   });
 </script>
 </body>
