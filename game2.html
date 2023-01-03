@@ -1,22 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clicker Game</title>
+  <title>Jumpin' Elephants</title>
+  <style>
+    /* Add some styling for the game */
+    body {
+      background-color: #ddd;
+      text-align: center;
+    }
+    #game {
+      display: inline-block;
+      background-color: #fff;
+      border: 1px solid #999;
+      width: 400px;
+      height: 300px;
+      position: relative;
+    }
+    .elephant {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      background-image: url(elephant.png);
+      background-size: cover;
+    }
+  </style>
 </head>
 <body>
-  <h1>Clicker Game</h1>
-  <button id="clicker-button">Click me!</button>
-  <p>Count: <span id="count">0</span></p>
+  <h1>Jumpin' Elephants</h1>
+  <div id="game">
+    <div id="elephant" class="elephant"></div>
+  </div>
+  <p>Click the elephant to make it jump!</p>
 
 <script>
-  // Get the button and count elements
-  var button = document.getElementById('clicker-button');
-  var count = document.getElementById('count');
+  // Get the game and elephant elements
+  var game = document.getElementById('game');
+  var elephant = document.getElementById('elephant');
 
-  // Add an event listener to the button
-  button.addEventListener('click', function() {
-    // Increment the count by 1
-    count.textContent = parseInt(count.textContent) + 1;
+  // Set the initial position of the elephant
+  elephant.style.bottom = '0';
+
+  // Add an event listener to the elephant
+  elephant.addEventListener('click', function() {
+    // Calculate a random height for the jump
+    var jumpHeight = Math.random() * 100 + 50;
+
+    // Set the jump animation for the elephant
+    elephant.style.animation = 'jump ' + jumpHeight/100 + 's ease';
+
+    // Reset the position of the elephant after the jump
+    setTimeout(function() {
+      elephant.style.animation = '';
+      elephant.style.bottom = '0';
+    }, jumpHeight*10);
   });
 </script>
 </body>
