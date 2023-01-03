@@ -2,3 +2,6 @@
   from { bottom: 0; }
   to { bottom: 50px; }
 }
+.elephant {
+  animation-duration: 2s;
+}
