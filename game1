@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clicker Game</title>
+</head>
+<body>
+  <h1>Clicker Game</h1>
+  <button id="clicker-button">Click me!</button>
+  <p>Count: <span id="count">0</span></p>
+
+<script>
+  // Get the button and count elements
+  var button = document.getElementById('clicker-button');
+  var count = document.getElementById('count');
+
+  // Add an event listener to the button
+  button.addEventListener('click', function() {
+    // Increment the count by 1
+    count.textContent = parseInt(count.textContent) + 1;
+  });
+</script>
+</body>
+</html>
