@@ -3,5 +3,8 @@
   to { bottom: 50px; }
 }
 .elephant {
-  animation-duration: 2s;
+  animation-duration: 1s;
+}
+#game {
+  background-color: #9FE2BF;
 }
