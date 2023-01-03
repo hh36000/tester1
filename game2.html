@@ -53,11 +53,9 @@
     // Set the jump animation for the elephant
     elephant.style.animation = 'jump ' + jumpHeight/100 + 's ease';
 
-    // Reset the position of the elephant after the jump
-    setTimeout(function() {
-      elephant.style.animation = '';
-      elephant.style.bottom = '0';
-    }, jumpHeight*10);
+  // Don't reset the position of the elephant after the jump
+  // Instead, keep increasing the jump height
+  elephant.style.bottom = jumpHeight + 'px';
   });
 </script>
 </body>
